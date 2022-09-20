@@ -25,6 +25,7 @@ const url = req.body.newUrl
     let pageFinished: any
     const crawl = async (url: string) => {
         pageFinished = false
+        console.log(`CRAWLING ${url}`)
         seenUrls[url] = true
         crawlCount++
         const res = await fetch(url)
@@ -50,11 +51,15 @@ const url = req.body.newUrl
     }
 
     const crawlAll = async () => {
-        const results = await crawl(url)
-
+         return await crawl(url).then(() => {
+            console.log('CRAWL FINISHED')
+            return foundOldLinks
+        })
     }
 
-    crawlAll()
+    const result = await crawlAll()
+    console.log(result)
+    res.status(200).json({ foundOldLinks: result })
 }
 
 export default getDeadLinks

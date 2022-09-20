@@ -8,6 +8,7 @@ const Home: NextPage = () => {
 
   const [newUrl, setNewUrl] = React.useState("");
   const [allowedSubdomains, setAllowedSubdomains] = React.useState("");
+  const [results, setResults] = React.useState([]);
 
   const getDeadLinks = async () => {
     const allowedSubdomainsArr = allowedSubdomains.split(",")
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
       }),
     })
     const data = await res.json();
-    return data;
+    setResults(data) ;
   }
 
   const isLoading = false
