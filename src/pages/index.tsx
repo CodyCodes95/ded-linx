@@ -10,6 +10,49 @@ const Home: NextPage = () => {
   const [allowedSubdomains, setAllowedSubdomains] = React.useState("");
   const [results, setResults] = React.useState([]);
 
+  const resTemp = {
+    "https://www.qnmu.org.au/Web/Web/Membership/Member-Benefits.aspx": [
+        "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/Our_Journal.aspx",
+        "https://www.qnmu.org.au/awards",
+        "https://www.qnmu.org.au/EventDetailNoDiet?EventKey=22_GEN_03",
+        "https://www.qnmu.org.au/conference"
+    ],
+    "https://www.qnmu.org.au/Web/Web/Membership/Membership_Fees/Pay_Online.aspx": [
+        "https://www.qnmu.org.au/DocumentsFolder/QNMU%20DOCUMENTS/General/QNMU_Membership_update_form.pdf",
+        "https://www.qnmu.org.au/DocumentsFolder/QNMU%20DOCUMENTS/General/QNMU%20Direct%20Debit%20Service%20Agreement%201117%20WEB.pdf"
+    ],
+    "https://www.qnmu.org.au/Web/Web/Membership/Membership_and_Fees.aspx": [
+        "http://www.qnmu.org.au/join"
+    ],
+    "https://www.qnmu.org.au/Web/Web/Membership/Membership.aspx": [
+        "http://www.qnmu.org.au/join"
+    ],
+    "https://www.qnmu.org.au/Web/Web/Campaigns/EB11.aspx": [
+        "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/News_items/2022/QLD_Health_Offer_In_Principle_010722.aspx"
+    ],
+    "https://www.qnmu.org.au/Web/Web/Campaigns/Ratios_Save_Lives_FAQ.aspx": [
+        "https://www.qnmu.org.au/workloads"
+    ],
+    "https://www.qnmu.org.au/Web/Campaigns/EB11/Web/Campaigns/EB11.aspx?hkey=37ca49ae-09d6-40b8-a50b-c0cd6a0210ac": [
+        "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/News_items/2022/QLD_Health_Offer_In_Principle_010722.aspx"
+    ],
+    "https://www.qnmu.org.au/Web/QNMU/PUBLIC/CAMPAIGNS/Standards.aspx": [
+        "https://www.qnmu.org.au/Awards/Finalists/PPAwards2020/Awards_finalists/Award-finalists.aspx?"
+    ],
+    "https://www.qnmu.org.au/Web/Membership/Membership_Fees/Web/Membership/Membership_and_Fees.aspx?hkey=e06722a6-0e90-4958-ab27-85b13c2c29ec": [
+        "http://www.qnmu.org.au/join"
+    ],
+    "https://www.qnmu.org.au/Web/Membership/Member-Benefits/Web/Membership/Member-Benefits.aspx?hkey=5e15c899-41c3-40e9-92b1-6784efd4bbc5": [
+        "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/Our_Journal.aspx",
+        "https://www.qnmu.org.au/awards",
+        "https://www.qnmu.org.au/EventDetailNoDiet?EventKey=22_GEN_03",
+        "https://www.qnmu.org.au/conference"
+    ],
+    "https://www.qnmu.org.au/Web/Membership/QNMU-Membership/Web/Membership/Membership.aspx?hkey=920f13fe-7a15-4de5-9636-1cfef8a1b574": [
+        "http://www.qnmu.org.au/join"
+    ]
+}
+
   const getDeadLinks = async () => {
     const allowedSubdomainsArr = allowedSubdomains.split(",")
     allowedSubdomainsArr.unshift(newUrl)
@@ -73,6 +116,18 @@ const Home: NextPage = () => {
             <a className="">Twitter</a>
             </div>
       </div>
+      {resTemp && (
+        <div className="flex flex-col items-center justify-center min-h-screen bg-slate-900">
+          <h1 className="text-5xl text-white">Results</h1>
+          {Object.entries(resTemp).map(([key, value]) => (
+            <div>
+              <h2 className="text-2xl text-white">{key}</h2>
+              {value.map((link) => (
+                <p className="text-white">{link}</p>
+              ))
+              }</div>
+              ))}
+          </div>)}
     </>
   );
 };
