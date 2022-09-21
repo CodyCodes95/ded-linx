@@ -8,7 +8,7 @@ const FindTarget = () => {
 
     const findTargetLinks = async () => {
     const targetLinksArr = targetLinks.split(",")
-    const res = await fetch("/api/getDeadLinks", {
+    const res = await fetch("/api/findTargetLinks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

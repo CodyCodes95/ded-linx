@@ -35,11 +35,8 @@ const url = req.body.newUrl
 
         const { host } = urlParser.parse(url) as any
 
-        const hostLinks = links.filter((link, i) => {
-            return link.includes(host)
-        })
 
-        for (let link of hostLinks) {
+        for (let link of links.filter(link => link.includes(host))) {
             if (!newUrls.some((website: any) => link.toLowerCase().includes(website.toLowerCase()))) {
                 console.log(`Old Link: ${link} found on URL ${url}`);
                 foundOldLinks[url] = foundOldLinks[url] ? [...foundOldLinks[url], link] : [link]
