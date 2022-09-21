@@ -99,6 +99,14 @@ const Home: NextPage = () => {
 
         <main className="w-[50%] items-center flex flex-col">
           <h1 className="mb-[10rem] text-5xl text-white">ded linx</h1>
+<ul className="hidden text-sm font-medium text-center text-gray-500 rounded-lg divide-x divide-gray-200 shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
+    <li className="w-full">
+        <a href="#" className="inline-block p-4 w-full text-gray-900 bg-gray-100 rounded-l-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white" aria-current="page">Find Old Website Links</a>
+    </li>
+    <li className="w-full">
+        <a href="#" className="inline-block p-4 w-full bg-white rounded-r-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">Find Specific URL's</a>
+    </li>
+</ul>
           <div className="flex justify-between w-full">
           <div className="flex flex-col text-white w-[50%]">
             <h2 className="text-2xl text-center">How to Use</h2>
