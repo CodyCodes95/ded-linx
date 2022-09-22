@@ -24,7 +24,6 @@ const FindTarget = () => {
 
   return (
     <main className="w-[50%] items-center flex flex-col">
-          <h1 className="mb-[10rem] text-5xl text-white">ded linx</h1>
           <div className="flex justify-between w-full">
           <div className="flex flex-col text-white w-[50%]">
             <h2 className="text-2xl text-center">How to Use</h2>
