@@ -53,7 +53,6 @@ const Home: NextPage = () => {
         {tab[0] && <FindDead />}
         {tab[1] && <FindTarget />}
       </div>
-      <Results />
       
     </>
   );

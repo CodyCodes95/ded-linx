@@ -67,7 +67,7 @@ const FindDead = () => {
   }
     return (
       <>
-            <main className="w-[50%] items-center flex flex-col">
+            <main className="w-[75%] items-center flex flex-col">
           <div className="flex justify-between w-full">
           <div className="flex flex-col text-white w-[50%]">
             <h2 className="text-2xl text-center">How to Use</h2>
@@ -83,7 +83,8 @@ const FindDead = () => {
             <div className="absolute bottom-0 p-2 text-white text-lg flex w-[15rem] justify-around">
             <a className="">Github</a>
             <a className="">Twitter</a>
-            </div>
+        </div>
+        <Results results={results} type="dead" />
             </>
             
   )

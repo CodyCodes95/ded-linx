@@ -23,7 +23,8 @@ const FindTarget = () => {
   }
 
   return (
-    <main className="w-[50%] items-center flex flex-col">
+    <>
+    <main className="w-[75%] items-center flex flex-col">
           <div className="flex justify-between w-full">
           <div className="flex flex-col text-white w-[50%]">
             <h2 className="text-2xl text-center">How to Use</h2>
@@ -35,7 +36,9 @@ const FindTarget = () => {
              </div>
             </div>
             <button onClick={() => findTargetLinks()} type="button" className=" mt-[10rem] w-[10rem] text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900 transition-ease-in duration-200">find em</button>
-            </main>
+      </main>
+    <Results results={results} type="target" />
+    </>
   )
 }
 
