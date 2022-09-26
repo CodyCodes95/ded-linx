@@ -2,6 +2,7 @@ import React from 'react'
 
 const Results = ({type, results }: any) => {
   return 
+  <div className='bg-slate-900'>
         {results && (
         <div className="flex flex-col items-center justify-center min-h-screen bg-slate-900">
           <h1 className="text-5xl text-white">Results</h1>
@@ -13,7 +14,8 @@ const Results = ({type, results }: any) => {
               ))
               }</div>
               ))}
-          </div>)}
+      </div>)}
+    </div>
   
 }
 

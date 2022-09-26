@@ -1,4 +1,5 @@
 import React from 'react'
+import Results from './Results';
 
 const FindDead = () => {
 
@@ -78,7 +79,7 @@ const FindDead = () => {
              <input value={allowedSubdomains} onChange={(e) => setAllowedSubdomains(e.target.value)} className="g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" placeholder="Allowed subdomains" />
              </div>
             </div>
-            <button onClick={() => getDeadLinks()} type="button" className=" mb-[15rem] w-[10rem] text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900 transition-ease-in duration-200">find em</button>
+            <button onClick={() => getDeadLinks()} type="button" className="mb-[15rem] w-[10rem] text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900 transition-ease-in duration-200">find em</button>
             </main>
             <div className="absolute bottom-0 p-2 text-white text-lg flex w-[15rem] justify-around">
             <a className="">Github</a>
