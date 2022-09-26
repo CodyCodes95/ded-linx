@@ -3,7 +3,7 @@ import Results from './Results';
 
 const FindDead = () => {
 
-      const resTemp = {
+      const results = {
     "https://www.qnmu.org.au/Web/Web/Membership/Member-Benefits.aspx": [
         "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/Our_Journal.aspx",
         "https://www.qnmu.org.au/awards",
@@ -48,7 +48,7 @@ const FindDead = () => {
 
       const [newUrl, setNewUrl] = React.useState("");
     const [allowedSubdomains, setAllowedSubdomains] = React.useState("");
-      const [results, setResults] = React.useState([]);
+      // const [results, setResults] = React.useState([]);
 
       const getDeadLinks = async () => {
     const allowedSubdomainsArr = allowedSubdomains.split(",")
@@ -64,7 +64,7 @@ const FindDead = () => {
       }),
     })
     const data = await res.json();
-    setResults(data) ;
+    // setResults(data) ;
   }
     return (
       <>
