@@ -41,8 +41,10 @@ const FindTarget = () => {
                   <div className="absolute bottom-0 p-2 text-white text-lg flex w-[15rem] justify-around">
             <a className="">Github</a>
             <a className="">Twitter</a>
+      </div>
+              <div className='bg-slate-900'>
+        <Results results={results} type="target" />
         </div>
-    <Results results={results} type="target" />
     </>
   )
 }
