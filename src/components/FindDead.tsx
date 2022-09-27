@@ -85,9 +85,7 @@ const FindDead = () => {
             <a className="">Github</a>
             <a className="">Twitter</a>
         </div>
-        <div className='bg-slate-900'>
           <Results results={results} type="dead" />
-          </div>
             </>
             
   )
