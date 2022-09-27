@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import FindDead from "../components/findDead";
+import FindDead from "../components/FindDead";
 import FindTarget from "../components/FindTarget";
 import Results from "../components/Results";
 import { trpc } from "../utils/trpc";
