@@ -41,13 +41,13 @@ const url = req.body.newUrl
                 console.log(`Old Link: ${link} found on URL ${url}`);
                 foundOldLinks[url] = foundOldLinks[url] ? [...foundOldLinks[url], link] : [link]
             }
-            if (link.includes(newUrls[0]) && !seenUrls[getUrl(link)]) {
-                await crawl(getUrl(link))
-            }
             i++
             if (i === links.filter(link => link.includes(host)).length) {
                 pageFinished = true
                 console.log(`PAGE FINISHED ${url}`)
+            }
+            if (link.includes(newUrls[0]) && !seenUrls[getUrl(link)]) {
+                await crawl(getUrl(link))
             }
         }
     }
@@ -55,7 +55,7 @@ const url = req.body.newUrl
     const crawlAll = async () => {
          return await crawl(url).then(() => {
             console.log('CRAWL FINISHED')
-            return foundOldLinks
+            return Object.entries(foundOldLinks).map(([key,value]) => ({url: key, links: value}))
         })
     }
 
