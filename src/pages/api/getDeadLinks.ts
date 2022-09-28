@@ -34,7 +34,7 @@ const url = req.body.newUrl
         const links = $("a").map((i, link) => link.attribs.href).get()
 
         const { host } = urlParser.parse(url) as any
-
+        let i = 0
 
         for (let link of links.filter(link => link.includes(host))) {
             if (!newUrls.some((website: any) => link.toLowerCase().includes(website.toLowerCase()))) {
@@ -43,6 +43,11 @@ const url = req.body.newUrl
             }
             if (link.includes(newUrls[0]) && !seenUrls[getUrl(link)]) {
                 await crawl(getUrl(link))
+            }
+            i++
+            if (i === links.filter(link => link.includes(host)).length) {
+                pageFinished = true
+                console.log(`PAGE FINISHED ${url}`)
             }
         }
     }
