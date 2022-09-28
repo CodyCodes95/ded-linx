@@ -1,11 +1,11 @@
 import React from "react";
 import Results from "./Results";
 
-const FindTarget = () => {
+const FindTarget = ({setResults}: any) => {
 
     const [searchUrl, setSearchUrl] = React.useState("");
   const [targetUrls, setTargetUrls] = React.useState("");
-    const [results, setResults] = React.useState([]);
+    
 
     const findTargetLinks = async () => {
     const targetUrlsArr = targetUrls.split(",")
@@ -25,7 +25,7 @@ const FindTarget = () => {
 
   return (
     <>
-    <main className="w-[75%] items-center flex flex-col">
+    <div className="w-[75%] items-center flex flex-col">
           <div className="flex justify-between w-full">
           <div className="flex flex-col text-white w-[50%]">
             <h2 className="text-2xl text-center">How to Use</h2>
@@ -37,14 +37,7 @@ const FindTarget = () => {
              </div>
             </div>
             <button onClick={() => findTargetLinks()} type="button" className="mb-[15rem] w-[10rem] text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900 transition-ease-in duration-200">find em</button>
-      </main>
-                  <div className="absolute bottom-0 p-2 text-white text-lg flex w-[15rem] justify-around">
-            <a className="">Github</a>
-            <a className="">Twitter</a>
       </div>
-              <div className='bg-slate-900'>
-        <Results results={results} type="target" />
-        </div>
     </>
   )
 }
