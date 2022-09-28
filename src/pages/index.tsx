@@ -10,51 +10,55 @@ const Home: NextPage = () => {
   const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
 
   const [tab, setTab] = React.useState([true, false]);
-  const [results, setResults] = React.useState([]);
+  const [results, setResults] = React.useState(null);
   const activeClasses = "text-gray-900 bg-gray-100 dark:bg-gray-700 dark:text-white"
   const inactiveClasses = "hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white bg-gray-800 dark:hover:bg-gray-700"
-//         const results = {
-//     "https://www.qnmu.org.au/Web/Web/Membership/Member-Benefits.aspx": [
-//         "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/Our_Journal.aspx",
-//         "https://www.qnmu.org.au/awards",
-//         "https://www.qnmu.org.au/EventDetailNoDiet?EventKey=22_GEN_03",
-//         "https://www.qnmu.org.au/conference"
-//     ],
-//     "https://www.qnmu.org.au/Web/Web/Membership/Membership_Fees/Pay_Online.aspx": [
-//         "https://www.qnmu.org.au/DocumentsFolder/QNMU%20DOCUMENTS/General/QNMU_Membership_update_form.pdf",
-//         "https://www.qnmu.org.au/DocumentsFolder/QNMU%20DOCUMENTS/General/QNMU%20Direct%20Debit%20Service%20Agreement%201117%20WEB.pdf"
-//     ],
-//     "https://www.qnmu.org.au/Web/Web/Membership/Membership_and_Fees.aspx": [
-//         "http://www.qnmu.org.au/join"
-//     ],
-//     "https://www.qnmu.org.au/Web/Web/Membership/Membership.aspx": [
-//         "http://www.qnmu.org.au/join"
-//     ],
-//     "https://www.qnmu.org.au/Web/Web/Campaigns/EB11.aspx": [
-//         "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/News_items/2022/QLD_Health_Offer_In_Principle_010722.aspx"
-//     ],
-//     "https://www.qnmu.org.au/Web/Web/Campaigns/Ratios_Save_Lives_FAQ.aspx": [
-//         "https://www.qnmu.org.au/workloads"
-//     ],
-//     "https://www.qnmu.org.au/Web/Campaigns/EB11/Web/Campaigns/EB11.aspx?hkey=37ca49ae-09d6-40b8-a50b-c0cd6a0210ac": [
-//         "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/News_items/2022/QLD_Health_Offer_In_Principle_010722.aspx"
-//     ],
-//     "https://www.qnmu.org.au/Web/QNMU/PUBLIC/CAMPAIGNS/Standards.aspx": [
-//         "https://www.qnmu.org.au/Awards/Finalists/PPAwards2020/Awards_finalists/Award-finalists.aspx?"
-//     ],
-//     "https://www.qnmu.org.au/Web/Membership/Membership_Fees/Web/Membership/Membership_and_Fees.aspx?hkey=e06722a6-0e90-4958-ab27-85b13c2c29ec": [
-//         "http://www.qnmu.org.au/join"
-//     ],
-//     "https://www.qnmu.org.au/Web/Membership/Member-Benefits/Web/Membership/Member-Benefits.aspx?hkey=5e15c899-41c3-40e9-92b1-6784efd4bbc5": [
-//         "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/Our_Journal.aspx",
-//         "https://www.qnmu.org.au/awards",
-//         "https://www.qnmu.org.au/EventDetailNoDiet?EventKey=22_GEN_03",
-//         "https://www.qnmu.org.au/conference"
-//     ],
-//     "https://www.qnmu.org.au/Web/Membership/QNMU-Membership/Web/Membership/Membership.aspx?hkey=920f13fe-7a15-4de5-9636-1cfef8a1b574": [
-//         "http://www.qnmu.org.au/join"
-//     ]
-// }
+        const ress = {
+    "https://www.qnmu.org.au/Web/Web/Membership/Member-Benefits.aspx": [
+        "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/Our_Journal.aspx",
+        "https://www.qnmu.org.au/awards",
+        "https://www.qnmu.org.au/EventDetailNoDiet?EventKey=22_GEN_03",
+        "https://www.qnmu.org.au/conference"
+    ],
+    // "https://www.qnmu.org.au/Web/Web/Membership/Membership_Fees/Pay_Online.aspx": [
+    //     "https://www.qnmu.org.au/DocumentsFolder/QNMU%20DOCUMENTS/General/QNMU_Membership_update_form.pdf",
+    //     "https://www.qnmu.org.au/DocumentsFolder/QNMU%20DOCUMENTS/General/QNMU%20Direct%20Debit%20Service%20Agreement%201117%20WEB.pdf"
+    // ],
+    // "https://www.qnmu.org.au/Web/Web/Membership/Membership_and_Fees.aspx": [
+    //     "http://www.qnmu.org.au/join"
+    // ],
+    // "https://www.qnmu.org.au/Web/Web/Membership/Membership.aspx": [
+    //     "http://www.qnmu.org.au/join"
+    // ],
+    // "https://www.qnmu.org.au/Web/Web/Campaigns/EB11.aspx": [
+    //     "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/News_items/2022/QLD_Health_Offer_In_Principle_010722.aspx"
+    // ],
+    // "https://www.qnmu.org.au/Web/Web/Campaigns/Ratios_Save_Lives_FAQ.aspx": [
+    //     "https://www.qnmu.org.au/workloads"
+    // ],
+    // "https://www.qnmu.org.au/Web/Campaigns/EB11/Web/Campaigns/EB11.aspx?hkey=37ca49ae-09d6-40b8-a50b-c0cd6a0210ac": [
+    //     "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/News_items/2022/QLD_Health_Offer_In_Principle_010722.aspx"
+    // ],
+    // "https://www.qnmu.org.au/Web/QNMU/PUBLIC/CAMPAIGNS/Standards.aspx": [
+    //     "https://www.qnmu.org.au/Awards/Finalists/PPAwards2020/Awards_finalists/Award-finalists.aspx?"
+    // ],
+    // "https://www.qnmu.org.au/Web/Membership/Membership_Fees/Web/Membership/Membership_and_Fees.aspx?hkey=e06722a6-0e90-4958-ab27-85b13c2c29ec": [
+    //     "http://www.qnmu.org.au/join"
+    // ],
+    // "https://www.qnmu.org.au/Web/Membership/Member-Benefits/Web/Membership/Member-Benefits.aspx?hkey=5e15c899-41c3-40e9-92b1-6784efd4bbc5": [
+    //     "https://www.qnmu.org.au/QNMU/PUBLIC/MEDIA_AND_PUBLICATIONS/Our_Journal.aspx",
+    //     "https://www.qnmu.org.au/awards",
+    //     "https://www.qnmu.org.au/EventDetailNoDiet?EventKey=22_GEN_03",
+    //     "https://www.qnmu.org.au/conference"
+    // ],
+    // "https://www.qnmu.org.au/Web/Membership/QNMU-Membership/Web/Membership/Membership.aspx?hkey=920f13fe-7a15-4de5-9636-1cfef8a1b574": [
+    //     "http://www.qnmu.org.au/join"
+    // ]
+        }
+
+  if (!results) {
+    setResults(ress)
+  }
 
   const isLoading = false
 
@@ -96,8 +100,8 @@ const Home: NextPage = () => {
         {tab[0] && <FindDead setResults={setResults} />}
         {tab[1] && <FindTarget setResults={setResults} />}
       </div>
-      {results.length > 0 && (<div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center">
-        <Results results={results} type={tab[0] ? "dead" : "target"} /> 
+      {results && (<div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center">
+        <Results setResults={setResults} results={results} type={tab[0] ? "dead" : "target"} /> 
       </div>)}
     <div className="absolute bottom-0 p-2 text-white text-lg flex justify-center w-full">
             <a className="p-2">Github</a>
