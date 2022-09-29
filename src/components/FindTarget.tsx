@@ -19,7 +19,7 @@ const FindTarget = ({setResults}: any) => {
         targetUrls: targetUrlsArr,
       }),
     })
-    const data = await res.json();
+      const data = await res.json();
     setResults(data) ;
   }
 

@@ -31,7 +31,7 @@ const url = req.body.newUrl
         const res = await fetch(url)
         const html = await res.text()
         const $ = cheerio.load(html)
-        const links = $("a").map((i, link) => link.attribs.href).get()
+        const links = $("a").map((i:any, link:any) => link.attribs.href).get()
 
         const { host } = urlParser.parse(url) as any
         let i = 0
