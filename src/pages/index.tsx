@@ -13,9 +13,11 @@ const Home: NextPage = () => {
   const [results, setResults] = React.useState(null);
   const activeClasses = "text-gray-900 bg-gray-100 dark:bg-gray-700 dark:text-white"
   const inactiveClasses = "hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white bg-gray-800 dark:hover:bg-gray-700"
+const [isLoading, setisLoading] = React.useState(true)
 
-
-  const isLoading = false
+  setTimeout(() => {
+    setisLoading(false)
+  },1000)
 
 
   if (isLoading) {
@@ -54,6 +56,7 @@ const Home: NextPage = () => {
         </nav>
         {tab[0] && <FindDead setResults={setResults} />}
         {tab[1] && <FindTarget setResults={setResults} />}
+
       </div>
       {results && (<div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center">
         <Results setResults={setResults} results={results} type={tab[0] ? "dead" : "target"} /> 
