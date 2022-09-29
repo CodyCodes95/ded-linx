@@ -29,7 +29,7 @@ const FindTarget = ({setResults, setIsLoading}: any) => {
           <div className="flex justify-between w-full">
           <div className="flex flex-col text-white w-[50%]">
             <h2 className="text-2xl text-center">How to Use</h2>
-            <p className=" mt-4 p-4">Simply enter the website to search in the top field and the unique portion of the links you wish to find in the bottom field, if searching for more than one, separate with a comma (recommended not to paste the entire link as href's may be different) and hit find! We will return a list of all pages containing your link</p>
+            <p className=" mt-4 p-4">Simply enter the website to search in the top field and the unique portion of the links you wish to find in the bottom field, if searching for more than one, separate with a comma (recommended not to paste the entire link as hrefs may be different) and hit find! We will return a list of all pages containing your link</p>
           </div>
           <div className="flex flex-col justify-center">
              <input value={searchUrl} onChange={(e) => setSearchUrl(e.target.value)} className="mb-10 g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" placeholder="Website to Search" />

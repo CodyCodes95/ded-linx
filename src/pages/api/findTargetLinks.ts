@@ -34,7 +34,7 @@ const crawl = async (url: string) => {
     const links = $("a").map((i, link) => link.attribs.href).get()
     const { host } = urlParser.parse(url) as any
     
-    for (let link of links.filter(link => link.includes(host))) {
+    for (const link of links.filter(link => link.includes(host))) {
         if (targetUrls.some((website: any) => link.toLowerCase().includes(website.toLowerCase()))) {
             console.log(`Found Link: ${link} found on URL ${url}`);
             foundTargetLinks[url] = foundTargetLinks[url] ? [...foundTargetLinks[url], link] : [link]
