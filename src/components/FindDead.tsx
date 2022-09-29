@@ -14,10 +14,8 @@ const FindDead = ({setResults, setIsLoading}: any) => {
   }
 
   const getDeadLinks = async () => {
-    console.log(specificSubdomain)
     setIsLoading(true)
     const path = specificSubdomain ? "getDeadLinks" : "bannedSubdomains"
-    console.log(`/api/${path}`)
     const subdomainsArr = subdomains.split(",")
     subdomainsArr.unshift(newUrl)
     const res = await fetch(`/api/${path}`, {
