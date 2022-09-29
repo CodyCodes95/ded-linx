@@ -7,17 +7,13 @@ import Results from "../components/Results";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
+  // const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
 
   const [tab, setTab] = React.useState([true, false]);
   const [results, setResults] = React.useState(null);
   const activeClasses = "text-gray-900 bg-gray-100 dark:bg-gray-700 dark:text-white"
   const inactiveClasses = "hover:text-gray-700 hover:bg-gray-50 dark:hover:text-white bg-gray-800 dark:hover:bg-gray-700"
-const [isLoading, setisLoading] = React.useState(true)
-
-  setTimeout(() => {
-    setisLoading(false)
-  },1000)
+const [isLoading, setIsLoading] = React.useState(false)
 
 
   if (isLoading) {
@@ -54,8 +50,8 @@ const [isLoading, setisLoading] = React.useState(true)
     </li>
 </ul>
         </nav>
-        {tab[0] && <FindDead setResults={setResults} />}
-        {tab[1] && <FindTarget setResults={setResults} />}
+        {tab[0] && <FindDead setResults={setResults} setIsLoading={setIsLoading} />}
+        {tab[1] && <FindTarget setResults={setResults} setIsLoading={setIsLoading} />}
 
       </div>
       {results && (<div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center">

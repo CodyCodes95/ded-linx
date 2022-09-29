@@ -6,7 +6,7 @@ const getDeadLinks = async (req: any, res: any) => {
 
 const url = req.body.newUrl
 
-    const newUrls = req.body.allowedSubdomains
+    const newUrls = req.body.subdomains
 
     const getUrl = (link: string) => {
         if (link.includes('http')) {

@@ -2,11 +2,11 @@ import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
 import * as urlParser from 'url';
 
-const findTargetLinks = async (req: any, res: any) => {
+const bannedSubdomains = async (req: any, res: any) => {
 
-const url = req.body.searchUrl
+const url = req.body.newUrl
 
-    const targetUrls = req.body.targetUrls
+    const subdomains = req.body.subdomains
 
 const getUrl = (link: string) => {
     if (link.includes('http')) {
@@ -31,7 +31,7 @@ const crawl = async (url: string) => {
     const { host } = urlParser.parse(url) as any
     
     for (let link of links.filter(link => link.includes(host))) {
-        if (targetUrls.some((website: any) => link.toLowerCase().includes(`${host.toLowerCase()}${website.toLowerCase()}`))) {
+        if (subdomains.some((website: any) => link.toLowerCase().includes(`${host.toLowerCase()}${website.toLowerCase()}`))) {
             console.log(`Found Link: ${link} found on URL ${url}`);
             foundTargetLinks[url] = foundTargetLinks[url] ? [...foundTargetLinks[url], link] : [link]
         }
@@ -53,4 +53,4 @@ const crawl = async (url: string) => {
     res.status(200).json(result)
 }
 
-export default findTargetLinks
+export default bannedSubdomains

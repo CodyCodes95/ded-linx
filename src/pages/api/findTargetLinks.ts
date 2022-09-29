@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
 import * as urlParser from 'url';
 
-const getDeadLinks = async (req: any, res: any) => {
+const findTargetLinks = async (req: any, res: any) => {
 
 const url = req.body.searchUrl
 
@@ -57,4 +57,4 @@ const crawl = async (url: string) => {
     res.status(200).json(result)
 }
 
-export default getDeadLinks
+export default findTargetLinks

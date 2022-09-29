@@ -1,7 +1,7 @@
 import React from "react";
 import Results from "./Results";
 
-const FindTarget = ({setResults}: any) => {
+const FindTarget = ({setResults, setIsLoading}: any) => {
 
     const [searchUrl, setSearchUrl] = React.useState("");
   const [targetUrls, setTargetUrls] = React.useState("");
