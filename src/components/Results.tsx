@@ -2,11 +2,14 @@ import React from 'react'
 
 const Results = ({results, setResults }: any) => {
   
-  const removeItem = (i: number, iKey:number) => {
+  const removeItem = (i: number, iKey: number) => {
     const newResults = results
-    console.log(results)
     newResults[iKey].links.splice(i, 1)
-    setResults(newResults)
+    setResults([...newResults])
+    if (newResults[iKey].links.length === 0) {
+      newResults.splice(iKey, 1)
+      setResults([...newResults])
+    }
   }
 
   return (
@@ -35,3 +38,5 @@ const Results = ({results, setResults }: any) => {
 }
 
 export default Results
+
+// https://www.qnmu.org.au/Web
