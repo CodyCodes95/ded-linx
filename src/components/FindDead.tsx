@@ -15,10 +15,10 @@ const FindDead = ({setResults, setIsLoading}: any) => {
 
   const getDeadLinks = async () => {
     setIsLoading(true)
-    // const path = specificSubdomain ? "getDeadLinks" : "bannedSubdomains"
+    const path = specificSubdomain ? "getDeadLinks" : "bannedSubdomains"
     const subdomainsArr = subdomains.split(",")
     subdomainsArr.unshift(newUrl)
-    const res = await fetch(`https://ded-linx-api-production.up.railway.app/api/v1/bannedSubdomains`, {
+    const res = await fetch(`https://ded-linx-api-production.up.railway.app/api/v1/${path}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
