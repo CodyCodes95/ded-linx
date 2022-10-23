@@ -7,9 +7,10 @@ const FindTarget = ({setResults, setIsLoading}: any) => {
   const [targetUrls, setTargetUrls] = React.useState("");
     
 
-    const findTargetLinks = async () => {
+  const findTargetLinks = async () => {
+      setIsLoading(true)
     const targetUrlsArr = targetUrls.split(",")
-    const res = await fetch("https://ded-linx-api-production.up.railway.app/api/v1/findtarget", {
+    const res = await fetch("https://ded-linx-api-production.up.railway.app/api/v1/findTarget", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,8 +20,9 @@ const FindTarget = ({setResults, setIsLoading}: any) => {
         targetUrls: targetUrlsArr,
       }),
     })
-      const data = await res.json();
+    const data = await res.json();
     setResults(data) ;
+    setIsLoading(false)
   }
 
   return (
