@@ -9,7 +9,7 @@ const FindTarget = ({setResults, setIsLoading}: any) => {
 
     const findTargetLinks = async () => {
     const targetUrlsArr = targetUrls.split(",")
-    const res = await fetch("/api/findTargetLinks", {
+    const res = await fetch("https://ded-linx-api-production.up.railway.app/api/v1/findtarget", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
