@@ -15,8 +15,9 @@ const CountPages = ({ setResults, setIsLoading }: any) => {
         searchUrl,
       }),
     });
-    const data = await res.json();
-    setPageCount(data.count);
+      const data = await res.json();
+      console.log(await data)
+    setPageCount(await data.count);
     setIsLoading(false);
   };
 
