@@ -50,7 +50,7 @@ const [isLoading, setIsLoading] = React.useState(false)
               <a onClick={() =>setTab([false, true, false])} className={`inline-block p-4 w-full focus:outline-none min-w-[10rem] cursor-pointer ${tab[1] && activeClasses} ${!tab[1] && inactiveClasses}`}>Specific Links</a>
     </li>
     <li className="w-full">
-              <a onClick={() =>setTab([false, false, true])} className={`inline-block p-4 w-full focus:outline-none rounded-r-lg min-w-[10rem] cursor-pointer ${tab[2] && activeClasses} ${!tab[1] && inactiveClasses}`}>Specific Links</a>
+              <a onClick={() =>setTab([false, false, true])} className={`inline-block p-4 w-full focus:outline-none rounded-r-lg min-w-[10rem] cursor-pointer ${tab[2] && activeClasses} ${!tab[1] && inactiveClasses}`}>Count Pages</a>
     </li>
 </ul>
         </nav>
