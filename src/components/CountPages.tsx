@@ -2,7 +2,7 @@ import React from "react";
 
 const CountPages = ({ setResults, setIsLoading }: any) => {
     const [searchUrl, setSearchUrl] = React.useState("");
-    const [pageCount, setPageCount] = React.useState(0);
+    const [pageCount, setPageCount] = React.useState(null);
 
   const getPageCount = async () => {
     setIsLoading(true);
@@ -16,8 +16,8 @@ const CountPages = ({ setResults, setIsLoading }: any) => {
       }),
     });
       const data = await res.json();
-      console.log(await data)
-    setPageCount(await data.count);
+      setPageCount(await data.count);
+      console.log(pageCount)
     setIsLoading(false);
   };
 
